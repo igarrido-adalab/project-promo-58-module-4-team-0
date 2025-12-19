@@ -66,7 +66,11 @@ function Form({ data, changeData }) {
   const handleClick = () => {
     setSendStatus('pending');
 
-    fetch('http://localhost:3000/api/project', {
+    const server = import.meta.env.PROD
+      ? 'https://project-promo-58-module-4-team-0.onrender.com'
+      : 'http://localhost:3000';
+
+    fetch(`${server}/api/project`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),

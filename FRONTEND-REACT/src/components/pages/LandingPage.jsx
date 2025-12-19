@@ -6,8 +6,12 @@ import { Link } from 'react-router';
 function LandingPage() {
   const [projects, setProjects] = useState([]);
 
+  const server = import.meta.env.PROD
+    ? 'https://project-promo-58-module-4-team-0.onrender.com'
+    : 'http://localhost:3000';
+
   useEffect(() => {
-    fetch('http://localhost:3000/api/projects')
+    fetch(`${server}/api/projects`)
       .then((res) => res.json())
       .then((data) => {
         setProjects(data);

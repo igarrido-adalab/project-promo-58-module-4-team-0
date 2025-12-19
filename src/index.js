@@ -61,7 +61,7 @@ const getConnection = async () => {
 
 // Arrancar el servidor en el puerto 3000:
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Uh! El servidor ya está arrancado: <http://localhost:${port}/>`);
 });
@@ -72,6 +72,7 @@ app.listen(port, () => {
 
 app.get('/api/projects', async (req, res) => {
   console.log(req.headers.host);
+
   // 1. Conectarse a la base de datos.
 
   const conn = await getConnection();
@@ -131,7 +132,7 @@ app.post('/api/project', async (req, res) => {
   // 5. Devolver la información.
   res.json({
     success: true,
-    projectURL: `http://localhost:3000/project/${resultInsertProject.insertId}`
+    projectURL: `${req.headers.host}/project/${resultInsertProject.insertId}`
   })
 });
 
