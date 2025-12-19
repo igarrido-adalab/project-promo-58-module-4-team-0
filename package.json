@@ -1,0 +1,29 @@
+{
+  "name": "project-promo-58-module-4-team-0",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/igarrido-adalab/project-promo-58-module-4-team-0#readme",
+  "bugs": {
+    "url": "https://github.com/igarrido-adalab/project-promo-58-module-4-team-0/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/igarrido-adalab/project-promo-58-module-4-team-0.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "rm -rf frontend-static ; cd FRONTEND-REACT ; npm run build ; mv dist ../frontend-static ; git add ../frontend-static ; git commit -m 'Add new version of React.' ; git push"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "mysql2": "^3.16.0"
+  }
+}
